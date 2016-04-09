@@ -14,7 +14,7 @@ int jugar_partida(int modo, int *lifes){
     char codigo[4];
     int indice1, indice2, error;
     srand(time(NULL));
-    printf("Se va a jugar una partida\n");
+    // printf("Se va a jugar una partida\n");
 
     //GENERAMOS EL CODIGO SECRETO
     do{
@@ -46,7 +46,7 @@ partida_normal(oportunidades, codigo);
   
     char codigo_p[4]="1234";  
     int oportunidades=100;
-    printf("Se va a jugar una partida de prueba\n");
+    // printf("Se va a jugar una partida de prueba\n");
 partida_normal(oportunidades, codigo_p);  
   }
   return 0;
@@ -77,7 +77,7 @@ int listar_historial(){
   char c;
   txt=fopen("partidas.txt","r");
   if( txt == NULL) {
-    printf("No puedo leer el fichero del historial\n");
+    printf("No puedo leer el fichero de historial (partidas.txt)\n");
     return 0;
   }
   while((c=fgetc(txt))!=EOF){ //Comparamos con fin de fichero.

@@ -14,70 +14,79 @@
 
 int main(){
 
-  char opcion[4];
-int error;
-int dificultad;
-int *lives;
-int *vez;
- char accion;
-lives=malloc(3*sizeof(int));
-*lives=100;
+  char opcion[400];
+  int error;
+  int dificultad;
+  int *lives;
+  char accion[30];
+  lives=malloc(3*sizeof(int));
+  *lives=100;
 
 
-pantalla();
+  pantalla();
   
-do{  
+  do{  
 
-menu();
+    menu();
 	
-fscanf(stdin," %s", opcion);
- if(strlen(opcion)!=1)opcion[0]=7;
+    fscanf(stdin," %s", opcion);
+    if(strlen(opcion)!=1)opcion[0]=7;
 
- error=0;
+    error=0;
 
- switch (opcion[0]) {
+    switch (opcion[0]) {
 
- case SALIR: { //salir
+    case SALIR: { //salir
+   
+      printf("\nEsta seguro de que desea salir? (s/n):");
+      do{
+	scanf(" %c", accion);
+	if(strlen(accion)!=1)accion[0]=3;
+	accion[0]=tolower(accion[0]);
 
-   do{
-     printf("\nEsta seguro de que desea salir? (s/n):");
-     scanf(" %c", &accion);
+	switch(accion[0]){
 
-     while(tolower(accion) != 's' && tolower(accion) != 'n'){
-       printf("\nLa respuesta no es correcta, introduzca (s/n):");
-       scanf(" %c", &accion);
-     }
-     if(tolower(accion)=='n'){
-       error=1;
-       break;
-     }
-   }while(tolower(accion) == 'n');
-   break;
- }
+	case 's': return 1;
+      case 'n':{
+	error=0;
+	break;
+      }
+      default: {
+	printf("\nLa respuesta no es correcta, introduzca (s/n):");
+	error=1;
+	break;
+      }
+	}
+      }while(error==1);
+      error=1;
+      break;
+    }
 
  case JUGAR : {
-   fprintf(stdout," \nHas seleccionado Jugar partida\n\n");
+   //fprintf(stdout," \nHas seleccionado Jugar partida\n\n");
    dificultad=0;
    error=1;
-    jugar_partida(dificultad, lives); //MODO NORMAL DE JUEGO
+   jugar_partida(dificultad, lives); //MODO NORMAL DE JUEGO
    break;
  }
  case PROBAR: {
-   fprintf(stdout," \nHas seleccionado Jugar partida de prueba\n\n");
+   //  fprintf(stdout," \nHas seleccionado Jugar partida de prueba\n\n");
    dificultad=1;
-     jugar_partida(dificultad, lives);
+   error=1;
+   jugar_partida(dificultad, lives);
    break;
  }
  case NIVEL: {
-   fprintf(stdout," \nHas seleccionado establecer nivel de dificultad\n\n");
+   //  fprintf(stdout," \nHas seleccionado establecer nivel de dificultad\n\n");
    error=1;
-    establecer_nivel(error, lives); //MODIFICAMOS EL NUMERO DE OPORTUNIDADES Y VOLVEMOS A LANZAR EL MENU DE OPCIONES
+   establecer_nivel(error, lives); //MODIFICAMOS EL NUMERO DE OPORTUNIDADES Y VOLVEMOS A LANZAR EL MENU DE OPCIONES
     
    break;
  }
  case LISTAR: {
-   fprintf(stdout,"\nHas seleccionado listar historial de partidas\n\n");
-     listar_historial();
+   // fprintf(stdout,"\nHas seleccionado listar historial de partidas\n\n");
+   listar_historial();
+   error=1;
    break;
  }
  default : {
@@ -85,9 +94,9 @@ fscanf(stdin," %s", opcion);
    error=1;
    break;
  }
- }
- }while (error == 1 );
- return 0;
-
-
 }
+}while (error == 1 );
+return 0;
+}
+
+

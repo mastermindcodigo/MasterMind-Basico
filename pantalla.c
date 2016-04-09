@@ -1,4 +1,4 @@
-//PANTALLA
+ //PANTALLA
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,20 +9,17 @@ void pantalla(){
   
 int asteriscos; 
 int linea_aste;
-  system("clear");
-  printf("\n");
-  for(asteriscos=0; asteriscos<=8; asteriscos++){
+
+  for(asteriscos=0; asteriscos<7; asteriscos++){
    
-    if(asteriscos<=3 || asteriscos>=5 ){
-      printf("\t\t");
-      for(linea_aste=0; linea_aste<81; linea_aste++){
+    if(asteriscos<3 || asteriscos>=4 ){;
+      for(linea_aste=0; linea_aste<80; linea_aste++){
 	printf("*");
       }
     }
-    else if(asteriscos==4){
-      printf("\t\t");
-      for(linea_aste=0; linea_aste<67; linea_aste++){
-	if(linea_aste==33){
+    else if(asteriscos==3){
+      for(linea_aste=0; linea_aste<66; linea_aste++){
+	if(linea_aste==32){
 	  printf("  MASTER MIND  ");
 	}
 	else{
@@ -32,6 +29,7 @@ int linea_aste;
     }
     printf("\n");
   }
+  printf("\n");
 }
 
 int confirmar(char opcion){
@@ -53,6 +51,8 @@ int confirmar(char opcion){
 
 void menu(){
 
-fprintf(stdout," 1) Jugar partida \n 2) Jugar partida de prueba \n 3) Establecer nivel de dificultad \n 4) Listar historial de partidas \n 0)Salir\n \nSiguiente operacion?: ");
+  char inte=168;
+
+  fprintf(stdout," 1) Jugar partida \n 2) Jugar partida de prueba \n 3) Establecer nivel de dificultad \n 4) Listar historial de partidas \n 0)Salir\n\n%cSiguiente operacion? ", inte);
 
 }

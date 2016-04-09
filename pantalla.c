@@ -51,8 +51,7 @@ int confirmar(char opcion){
 
 void menu(){
 
-  char inte=168;
 
-  fprintf(stdout," 1) Jugar partida \n 2) Jugar partida de prueba \n 3) Establecer nivel de dificultad \n 4) Listar historial de partidas \n 0)Salir\n\n%cSiguiente operacion? ", inte);
+  fprintf(stdout," 1) Jugar partida \n 2) Jugar partida de prueba \n 3) Establecer nivel de dificultad \n 4) Listar historial de partidas \n 0)Salir\n\n¿Siguiente operación? ");
 
 }

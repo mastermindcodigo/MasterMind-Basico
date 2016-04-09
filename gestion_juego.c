@@ -45,7 +45,7 @@ partida_normal(oportunidades, codigo);
   else{ //PARTIDA DE PRUEBA 
   
     char codigo_p[4]="1234";  
-    int oportunidades=100;
+    int oportunidades=*lifes;
     // printf("Se va a jugar una partida de prueba\n");
 partida_normal(oportunidades, codigo_p);  
   }
@@ -55,7 +55,7 @@ partida_normal(oportunidades, codigo_p);
 int establecer_nivel(int error, int *lifes){
 
   int modo=error;
-  printf("Nivel actual: %i\n", *lifes);
+  printf("\nNivel actual: %i\n", *lifes);
   while(modo==1){
     printf("Elige nuevo nivel [1..100]:");
     scanf(" %i", lifes);
@@ -64,7 +64,7 @@ int establecer_nivel(int error, int *lifes){
       modo=0;
     }
     else{
-      printf("\nNivel seleccionado no v·lido\n");
+      printf("\nNivel seleccionado no v√°lido\n");
       modo=1; 
     }
   }
@@ -74,10 +74,11 @@ int establecer_nivel(int error, int *lifes){
 int listar_historial(){
 
   FILE *txt;
+  printf("\n");
   char c;
   txt=fopen("partidas.txt","r");
   if( txt == NULL) {
-    printf("No puedo leer el fichero de historial (partidas.txt)\n");
+    printf("\nNo puedo leer el fichero de historial (partidas.txt)\n\n");
     return 0;
   }
   while((c=fgetc(txt))!=EOF){ //Comparamos con fin de fichero.

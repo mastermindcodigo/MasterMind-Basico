@@ -11,6 +11,7 @@
 #define NIVEL '3'
 #define LISTAR '4'
 #define SALIR '0'
+#define inte 168 
 
 int main(){
 
@@ -18,7 +19,7 @@ int main(){
   int error;
   int dificultad;
   int *lives;
-  char accion[30];
+  //char accion[30];
   lives=malloc(3*sizeof(int));
   *lives=100;
 
@@ -37,8 +38,9 @@ int main(){
     switch (opcion[0]) {
 
     case SALIR: { //salir
-   
-      printf("\nEsta seguro de que desea salir? (s/n):");
+   return 1;
+}
+  /*    printf("\nEsta seguro de que desea salir? (s/n):");
       do{
 	scanf(" %c", accion);
 	if(strlen(accion)!=1)accion[0]=3;
@@ -61,7 +63,7 @@ int main(){
       error=1;
       break;
     }
-
+*/
  case JUGAR : {
    //fprintf(stdout," \nHas seleccionado Jugar partida\n\n");
    dificultad=0;
@@ -90,7 +92,7 @@ int main(){
    break;
  }
  default : {
-   fprintf(stdout," \nOpcion no valida\n\n");
+   fprintf(stdout," \nOpción no valida\n\n");
    error=1;
    break;
  }
